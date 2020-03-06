@@ -1176,8 +1176,10 @@ namespace System.Windows.Controls
                 // Update the zoom level index to the appropriate place.
                 double oldZoom = Zoom;
                 FindZoomLevelIndex();
-                // As long as more zoomLevel's exist, increase zoom.
-                if (_zoomLevelIndex > 0)
+                // As long as zoom is synchronized with zoomLevel
+                // and more zoomLevel's exist, increase zoom.
+                if (oldZoom == DocumentViewer._zoomLevelCollection[_zoomLevelIndex] &&
+                    _zoomLevelIndex > 0)
                 {
                     _zoomLevelIndex--;
                 }
